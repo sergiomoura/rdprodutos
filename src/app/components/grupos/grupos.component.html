@@ -1,1 +1,5 @@
-{{grupos | json}}
+<ul>
+	<li *ngFor="let g of grupos">
+		<a href="#" (click)="grupoClicado.emit(g)">{{g.desc}}</a>
+	</li>
+</ul>
