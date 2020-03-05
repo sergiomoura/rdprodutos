@@ -10,13 +10,23 @@ import { Grupo } from 'src/app/models/Grupo';
 })
 export class ListaDeProdutosComponent implements OnInit {
   public produtos: Produto[] = [];
-
+  public produtosExibidos: Produto[] = [];
   constructor(private http: HttpService) {
 
     this.http.getProdutos().subscribe(
-      (data) => this.produtos = data
+      (data) => {
+        this.produtos = data;
+        this.produtosExibidos = data;
+      }
+
     )
 
+  }
+
+  listarDoGrupo(codDoGrupo: number) {
+    this.produtosExibidos = this.produtos.filter(
+      produto => produto.codGrupo == codDoGrupo
+    )
   }
 
   ngOnInit(): void {
