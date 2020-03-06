@@ -1,7 +1,7 @@
 <nav>
 	<ul>
-		<li><a href="#" routerLink="/">Home</a></li>
-		<li><a href="#" routerLink="/sobre">Sobre</a></li>
-		<li><a href="#" routerLink="/contato">Contato</a></li>
+		<li routerLinkActive="destaque" *ngFor="let item of itens">
+			<a routerLink="{{item.route}}">{{item.label}}</a>
+		</li>
 	</ul>
 </nav>

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+interface iItem {
+  label: string;
+  route: string;
+  ativo: boolean;
+}
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -7,7 +13,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  itens: iItem[] = [
+    {
+      ativo: false,
+      label: "Home",
+      route: "/home"
+    },
+    {
+      ativo: false,
+      label: "Sobre",
+      route: "/sobre"
+    },
+    {
+      ativo: false,
+      label: "Contato",
+      route: "/contato"
+    }
+  ]
+
+  constructor() {
+
+  }
+
+  destacar(item: iItem) {
+
+    // Fazendo com que todos os itens fiquem inativos
+    this.itens.forEach(
+      (item) => { item.ativo = false }
+    )
+
+    // Ativo o item
+    item.ativo = true;
+
+  }
 
   ngOnInit(): void {
   }

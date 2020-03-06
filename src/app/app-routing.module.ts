@@ -6,9 +6,11 @@ import { ContatoComponent } from './components/contato/contato.component';
 
 
 const routes: Routes = [
+
   {
     path: "",
-    component: HomeComponent
+    redirectTo: "/home",
+    pathMatch: "full"
   },
   {
     path: "home",
@@ -21,6 +23,11 @@ const routes: Routes = [
   {
     path: "contato",
     component: ContatoComponent
+  },
+  {
+    path: "**",
+    redirectTo: "home",
+    pathMatch: "full"
   }
 ];
 

@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   listarGrupo(grupo: Grupo) {
-    console.log(grupo);
     this.lista.listarDoGrupo(grupo.cod);
   }
 
